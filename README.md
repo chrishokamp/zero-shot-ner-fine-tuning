@@ -27,3 +27,4 @@ docker run -d --name quickstart -p 6900:6900 argilla/argilla-quickstart:latest
 
 Bonus: can you modify the GliNER architecture to do something else?
 
+Bonus: can you fine-tune a local llm to do the task? https://github.com/argilla-io/distilabel
