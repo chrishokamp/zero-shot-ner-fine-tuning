@@ -1,4 +1,4 @@
-## Zero- to Few-Shot NER Fine Tuning Lab
+# Zero- to Few-Shot NER Fine Tuning Lab
 
 After this lab, you will know how to use open source datasets, zero shot NER models, general purpose LLM APIs, and open-source annotation interfaces to:
 
@@ -9,7 +9,8 @@ After this lab, you will know how to use open source datasets, zero shot NER mod
 - fine tune smaller zero-shot models for better performance in a teacher-->student setting
 - evaluate the final fine-tuned models against the baselines
 
-### Lab Tasks
+## Lab Tasks
+
 (1) configure your environment (install miniconda if needed)
 ```
 conda create -n zero-shot-ner-lab python=3.10
@@ -17,7 +18,6 @@ conda activate zero-shot-ner-lab
 ```
 
 Install docker if you don't already have it
-
 
 set up this repo:
 `git clone https://github.com/chrishokamp/zero-shot-ner-fine-tuning`
