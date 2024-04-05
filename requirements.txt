@@ -1,0 +1,12 @@
+accelerate>=0.25.0
+datasets>=2.17.0
+spacy>=3.7.1
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz
+en_core_web_trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
+evaluate>=0.4.1
+gliner>=0.1.5
+jupyter>=1.0.0
+nervaluate>=0.1.8
+numpy>=1.24.2
+openai>=0.27.8
+sentence-transformers>=2.2.2
