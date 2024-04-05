@@ -71,6 +71,7 @@ We need to evaluate performance empirically, use [nervaluate](https://github.com
 - alternatively, use the biggest GliNER model as your teacher model. 
 
 (8) fine-tune the small zero-shot ner model to do better on your types (see example notebook)
+- Notebook: [fine-tune and evaluate custom gliner model](notebooks/finetune-gliner.ipynb)
 
 (9) check your annotations -- did your model improve? 
 - evaluate your model empirically and compare it with the baseline
