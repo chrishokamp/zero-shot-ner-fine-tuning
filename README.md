@@ -1,6 +1,6 @@
 # Zero- to Few-Shot NER Fine Tuning Lab
 
-After this lab, you will know how to use open source datasets, zero shot NER models, general purpose LLM APIs, and open-source annotation interfaces to:
+After this lab, you will know how to use open source datasets, zero shot NER models, and open-source annotation interfaces to:
 
 - quickly bootstrap datasets for a specific task
 - define a entity type system, weakly annotate, and create evaluation datasets
