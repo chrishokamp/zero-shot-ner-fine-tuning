@@ -1,0 +1,15 @@
+.DS_Store
+*.swp
+*.swo
+*.pyc
+*.pkl
+*.npy
+*.egg-info
+.ipynb_checkpoints
+.idea/
+.venv
+.vscode/
+/__pycache__/
+.mypy_cache/
+.env
+.venv
