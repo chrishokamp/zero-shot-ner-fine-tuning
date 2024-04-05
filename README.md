@@ -11,6 +11,8 @@ After this lab, you will know how to use open source datasets, zero shot NER mod
 
 ## Lab Tasks
 
+### Part 0: Setup
+
 (1) configure your environment (install miniconda if needed)
 ```
 conda create -n zero-shot-ner-lab python=3.10
@@ -24,30 +26,45 @@ set up this repo:
 
 Note: if you are using windows, we recommend setting up WSL + VSCode to avoid jumping through lots of windows-specific hoops. 
 
+### Part 1: Collect a Dataset  
 
-(3) collect a dataset -- possible sources: wikidata, news articles, generated with an llm or another source
+**Task: Define the domain + task** 
+What kind of dataset do you want to work with? 
+What types of entities are going to be important in that domain?
+
+(3) collect a dataset by semantically filtering a large dataset
+- Notebook: [semantically filter a huggingface dataset](notebooks/semantically-filter-a-huggingface-dataset.ipynb)
+- possible external sources: wikidata, news articles, generated with an llm or another source
 - your dataset should contain 10 documents at minimum, 100 or 1000 is better.
 - if you get stuck on this step just write 10 sentences
 - see the notebooks in data-generation/ for some dataset generation workflows
 
-Install Docker if needed
+### Part 2: Establish a Baseline
 
-(2) install Argilla
+**Task: establish baseline for the domain you defined in Part 1**
+
+(4) define your types and annotate your dataset with GliNER 
+- what types are in your dataset? make a list of them
+  - types are "things" -- the kinds of spans of text that you want to label
+- Notebook: [annotate dataset with gliner](notebooks/semantically-filter-a-huggingface-dataset.ipynb)
+
+(5)  install Argilla, and annotate at least 10 items in the Argilla UI
 Start the Argilla UI through their Docker image:
 ```
 docker run -d --name quickstart -p 6900:6900 argilla/argilla-quickstart:latest
 ```
+- After annotating, export your annotations
 
 
+*** Optional: Combine annotations across groups to create a larger dataset
 
-(4) what types are in your dataset? make a list of them
-- types are "things" -- spans of text that you want to label
-
-(5) annotate your dataset with GliNER and annotate at least 10 items in the Argilla UI
-
-(6) After annotating, export your annotations
-
+(6) Evaluate baseline performance
 We need to evaluate performance empirically, use [nervaluate](https://github.com/MantisAI/nervaluate) to do that. 
+
+
+## Part 3: Improve Performance on your domain
+
+**Task: Improve performance and throughput by fine-tuning a task-specific model**
 
 (7) Let's save the annotations we did manually as the evaluation set, and create a larger fine-tuning set for this task with an LLM, or with more manual annotation
 - use the dataset we provide to go faster on this step, or do it yourself, using this notebook as a template
