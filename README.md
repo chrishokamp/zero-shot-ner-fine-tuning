@@ -14,17 +14,20 @@ After this lab, you will know how to use open source datasets, zero shot NER mod
 ### Part 0: Setup
 
 (1) configure your environment (install miniconda if needed)
+Note: if you are using windows, we generally recommend setting up WSL + VSCode to avoid jumping through lots of windows-specific hoops. 
 ```
 conda create -n zero-shot-ner-lab python=3.10
-conda activate zero-shot-ner-lab 
 ```
 
-Install docker if you don't already have it
+[Install docker](https://docs.docker.com/engine/install/) if you don't already have it. You will need Docker for the Argilla UI annotation step in Part 2.
 
 set up this repo:
 `git clone https://github.com/chrishokamp/zero-shot-ner-fine-tuning`
-
-Note: if you are using windows, we recommend setting up WSL + VSCode to avoid jumping through lots of windows-specific hoops. 
+```
+cd zero-shot-ner-fine-tuning
+conda activate zero-shot-ner-lab 
+pip install -r requirements.txt
+```
 
 ### Part 1: Collect a Dataset  
 
@@ -33,7 +36,7 @@ What kind of dataset do you want to work with?
 What types of entities are going to be important in that domain?
 
 (3) collect a dataset by semantically filtering a large dataset
-- Notebook: [semantically filter a huggingface dataset](notebooks/semantically-filter-a-huggingface-dataset.ipynb)
+- Notebook: [semantically filter a huggingface dataset](notebooks/part-1-semantically-filter-a-huggingface-dataset.ipynb)
 - possible external sources: wikidata, news articles, generated with an llm or another source
 - your dataset should contain 10 documents at minimum, 100 or 1000 is better.
 - if you get stuck on this step just write 10 sentences
@@ -46,7 +49,7 @@ What types of entities are going to be important in that domain?
 (4) define your types and annotate your dataset with GliNER 
 - what types are in your dataset? make a list of them
   - types are "things" -- the kinds of spans of text that you want to label
-- Notebook: [annotate dataset with gliner](notebooks/semantically-filter-a-huggingface-dataset.ipynb)
+- Notebook: [annotate dataset with gliner](notebooks/part-2-semantically-filter-a-huggingface-dataset.ipynb)
 
 (5)  install Argilla, and annotate at least 10 items in the Argilla UI
 Start the Argilla UI through their Docker image:
@@ -71,7 +74,7 @@ We need to evaluate performance empirically, use [nervaluate](https://github.com
 - alternatively, use the biggest GliNER model as your teacher model. 
 
 (8) fine-tune the small zero-shot ner model to do better on your types (see example notebook)
-- Notebook: [fine-tune and evaluate custom gliner model](notebooks/finetune-gliner.ipynb)
+- Notebook: [fine-tune and evaluate custom gliner model](notebooks/part-3-finetune-gliner.ipynb)
 
 (9) check your annotations -- did your model improve? 
 - evaluate your model empirically and compare it with the baseline
