@@ -2,10 +2,10 @@
 
 After this lab, you will know how to use open source datasets, zero shot NER models, and open-source annotation interfaces to:
 
-- quickly bootstrap datasets for a specific task
-- define a entity type system, weakly annotate, and create evaluation datasets
-- evaluate off-the-shelf models on specific types to establish baselines
-- build configurable training datasets for new types
+- quickly bootstrap datasets for a specific entity recognition task
+- define a entity type system, weakly annotate, and create evaluation datasets for your task
+- evaluate off-the-shelf models on specific entity types to establish baselines
+- build configurable training datasets for new entity types
 - fine tune smaller zero-shot models for better performance in a teacher-->student setting
 - evaluate the final fine-tuned models against the baselines
 
