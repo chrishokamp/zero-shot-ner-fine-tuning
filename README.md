@@ -62,7 +62,7 @@ Alternatives to semantic filtering:
 - what types are in your dataset? make a list of them
   - types are "things" -- the kinds of spans of text that you want to label
   - the list of entity types you make will look something like: `["referee", "vollyball player", "sports fan", "food vendor", ...]`
-- Notebook: [annotate dataset with gliner](notebooks/part-2-semantically-filter-a-huggingface-dataset.ipynb)
+- Notebook: [annotate dataset with gliner](notebooks/part-2-annotate-with-gliner-review-in-argilla.ipynb)
 
 (5) Make the evaluation dataset: install Argilla, and annotate at least 10 items in the Argilla UI
 Start the Argilla UI through their Docker image:
