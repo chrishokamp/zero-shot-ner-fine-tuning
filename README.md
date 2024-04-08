@@ -29,6 +29,12 @@ conda activate zero-shot-ner-lab
 pip install -r requirements.txt
 ```
 
+we also need to install the FAISS library for vector search:
+```
+conda install -c pytorch faiss-cpu
+```
+
+
 ### Part 1: Collect a Dataset  
 
 **Task: Define the domain + task** 
