@@ -56,7 +56,7 @@ Alternatives to semantic filtering:
 
 ### Part 2: Establish a Baseline
 
-**Task: establish baseline for the domain you defined in Part 1**
+**Task: establish a baseline for the domain-specific dataset you defined in Part 1**
 
 (4) define your Entity types and annotate your dataset with GliNER 
 - what types are in your dataset? make a list of them
