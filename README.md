@@ -19,7 +19,11 @@ Note: if you are using windows, we generally recommend setting up WSL + VSCode t
 conda create -n zero-shot-ner-lab python=3.10
 ```
 
-[Install docker](https://docs.docker.com/engine/install/) if you don't already have it. You will need Docker for the Argilla UI annotation step in Part 2.
+[Install docker](https://docs.docker.com/engine/install/) if you don't already have it. You will need Docker for the Argilla UI annotation step in Part 2. 
+
+#### If you can't install Docker
+
+Alternatively, you can deploy the Argilla UI on Huggingface Spaces; see [this page](https://docs.argilla.io/en/latest/getting_started/quickstart_installation.html), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
 
 set up this repo:       
 `git clone https://github.com/chrishokamp/zero-shot-ner-fine-tuning`     
