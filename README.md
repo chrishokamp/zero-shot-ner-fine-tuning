@@ -23,7 +23,7 @@ conda create -n zero-shot-ner-lab python=3.10
 
 #### If you can't install Docker
 
-Alternatively, you can deploy the Argilla UI on Huggingface Spaces; see [this page](https://docs.argilla.io/en/latest/getting_started/quickstart_installation.html), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
+Alternatively, you can deploy the Argilla UI on Huggingface Spaces; see [this page](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
 
 set up this repo:       
 `git clone https://github.com/chrishokamp/zero-shot-ner-fine-tuning`     
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 we also need to install the FAISS library for vector search - there are a few different installation options for this, see the first notebook in [notebooks](notebooks/) for all of them:
 ```
-conda install -c pytorch faiss-cpu
+pip install faiss-cpu
 ```
 
 
