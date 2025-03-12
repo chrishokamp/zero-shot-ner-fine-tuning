@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 we also need to install the FAISS library for vector search - there are a few different installation options for this, see the first notebook in [notebooks](notebooks/) for all of them:
 ```
-conda install -c pytorch faiss-cpu
+pip install faiss-cpu
 ```
 
 
