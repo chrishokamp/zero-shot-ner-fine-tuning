@@ -23,13 +23,14 @@ We will be using Argilla for data annotation.
 There are two ways to use Argilla in the scope of this lab.
 
 1: Hosting Argilla on HuggingFace Spaces
+
 2: Hosting Argilla locally with Docker
 
-Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be consistent. That means the data will not be there anymore after you have ended your session of Argilla. This is not an issue for this lab since the data annotation is not the focus.
+Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be consistent. That means the data will not be there anymore after the HF Space resets. This is not an issue for this lab since the data annotation is not the whole focus.
 
 You annotations will persist on local storage on docker.
 
-Using Argilla is recommended for its convenience. Installing docker and Argilla through Docker takes some time.
+Using Argilla is recommended for its convenience. Installing docker and Argilla through Docker could slow you down.
 
 To deploy Argilla in HF Spaces; see [this page](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
 
