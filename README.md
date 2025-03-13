@@ -26,13 +26,13 @@ There are two ways to use Argilla in the scope of this lab.
 
 2: Hosting Argilla locally with Docker
 
-Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be consistent. That means the data will not be there anymore after the HF Space resets. This is not an issue for this lab since the data annotation is not the whole focus.
+Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be persistent. That means the data will be lost after the HF Space resets. This should not an issue for this lab since the data annotation is not the whole focus.
 
 You annotations will persist on local storage on docker.
 
-Using Argilla is recommended for its convenience. Installing docker and Argilla through Docker could slow you down.
+Hosting Argilla on HuggingFace Spaces is recommended for its convenience and efficiency. Installing docker and hosting Argilla through Docker could slow you down.
 
-To deploy Argilla in HF Spaces; see [this page](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
+To deploy Argilla in HF Spaces; see [guide](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook. Obtaining it is simple and it is explained in the guide.
 
 On the other hand, if you'd like to take the docker route, [install docker](https://www.docker.com/get-started/) if you don't already have it.
 Check the [doc](https://docs.argilla.io/latest/getting_started/how-to-deploy-argilla-with-docker/) for setting up Argilla using Docker.
@@ -72,11 +72,13 @@ Think around the domain and the problem, this will point you in the right direct
 
 (3) collect a domain-specific dataset by semantically filtering a large dataset      
 - Notebook: [semantically filter a huggingface dataset](notebooks/part-1-semantically-filter-a-huggingface-dataset.ipynb)
+- Example for a good query to get data in the, for example, textile domain would be `'jacket, pants, tshirt, skirt, trousers, clothing'` and a suboptimal query would be `'clothing'`
 - your dataset should contain 10 documents at minimum, 100 or 1000 is better.
 - if you get stuck on this step just write 10 sentences
 
 Alternatives to semantic filtering:
 - possible external sources: wikidata, news articles, generated with an llm, domain-specific sources
+- although this is an alternative, keep in mind that this could take much longer than semantic similarity filtering or you could end up with a very small dataset due to time constraints
 
 ### Part 2: Establish a Baseline
 
