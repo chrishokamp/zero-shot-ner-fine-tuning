@@ -1,9 +1,9 @@
 # Zero- to Few-Shot NER Fine Tuning Lab
 
-After this lab, you will know how to use open source datasets, zero shot NER models, and open-source annotation interfaces to:
+After this lab, you will know how to use open-source datasets, zero shot NER models, and open-source annotation interfaces to:
 
 - quickly bootstrap datasets for a specific entity recognition task
-- define a entity type system, weakly annotate, and create evaluation datasets for your task
+- define an entity type system, weakly annotate, and create evaluation datasets for your task
 - evaluate off-the-shelf models on specific entity types to establish baselines
 - build configurable training datasets for new entity types
 - fine tune smaller zero-shot models for better performance in a teacher-->student setting
@@ -18,24 +18,36 @@ Note: if you are using windows, we generally recommend setting up WSL + VSCode t
 ```
 conda create -n zero-shot-ner-lab python=3.10
 ```
+We will be using Argilla for data annotation.
 
-[Install docker](https://docs.docker.com/engine/install/) if you don't already have it. You will need Docker for the Argilla UI annotation step in Part 2. 
+There are two ways to use Argilla in the scope of this lab.
 
-#### If you can't install Docker
+1: Hosting Argilla on HuggingFace Spaces
 
-Alternatively, you can deploy the Argilla UI on Huggingface Spaces; see [this page](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook.
+2: Hosting Argilla locally with Docker
 
-set up this repo:       
+Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be persistent. That means the data will be lost after the HF Space resets. This should not an issue for this lab since the data annotation is not the whole focus.
+
+Your annotations will persist on local storage on docker.
+
+Hosting Argilla on HuggingFace Spaces is recommended for its convenience and efficiency. Installing docker and hosting Argilla through Docker could slow you down.
+
+To deploy Argilla in HF Spaces; see [guide](https://docs.argilla.io/latest/getting_started/quickstart/) and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook. Obtaining it is simple, and it is explained in the guide.
+
+On the other hand, if you'd like to take the docker route, [install docker](https://www.docker.com/get-started/) if you don't already have it.
+Check the [doc](https://docs.argilla.io/latest/getting_started/how-to-deploy-argilla-with-docker/) for setting up Argilla using Docker.
+
+Get this repo to your local:       
 `git clone https://github.com/chrishokamp/zero-shot-ner-fine-tuning`     
 
-Now install:
+Now install libraries/dependencies:
 ```
 cd zero-shot-ner-fine-tuning
 conda activate zero-shot-ner-lab 
 pip install -r requirements.txt
 ```
 
-we also need to install the FAISS library for vector search - there are a few different installation options for this, see the first notebook in [notebooks](notebooks/) for all of them:
+We also need to install the FAISS library for vector search - there are a few different installation options for this, see the first notebook in [notebooks](notebooks/) for all of them:
 ```
 pip install faiss-cpu
 ```
@@ -44,19 +56,29 @@ pip install faiss-cpu
 ### Part 1: Collect a Dataset  
 
 **Task: Define the domain + task**       
-What kind of data do you want to work with?   
-What problem are you going to solve?     
-What types of entities are going to be important in that domain?      
-If you are doing this lab in a group setting it's nice to define the task together.
+
+Try to answer the questions below to set the direction of the lab for you.
+
+**1. What domain would you like to work in?**
+
+The domain could be anything, as big as sports, entertainment, healthcare, finance or as niche as keyboards, luxury watches, cancer research. Since we will be semantically filtering a larger, more general dataset, going very niche could hurt your data quality. This is OK in the spirit of experimentation.
+
+**2. What problem are you going to solve?**
+
+For instance, a luxury watch brand could be interested keeping a tab on what's happening with their competitors, or a company could be looking for academic researchers to peer-review its research.
+
+**3. What types of entities are going to be important in that domain?**
+Think around the domain and the problem, this will point you in the right direction. For the luxury watch brand keeping the tab on its competitors scenario, interesting entity types could be 'organization', 'product', 'event' etc. 
 
 (3) collect a domain-specific dataset by semantically filtering a large dataset      
 - Notebook: [semantically filter a huggingface dataset](notebooks/part-1-semantically-filter-a-huggingface-dataset.ipynb)
+- Example for a good query to get data in the, for example, textile domain would be `'jacket, pants, tshirt, skirt, trousers, clothing'` and a suboptimal query would be `'clothing'`
 - your dataset should contain 10 documents at minimum, 100 or 1000 is better.
 - if you get stuck on this step just write 10 sentences
 
 Alternatives to semantic filtering:
 - possible external sources: wikidata, news articles, generated with an llm, domain-specific sources
-
+- although this is an alternative, keep in mind that this could take much longer than semantic similarity filtering or you could end up with a very small dataset due to time constraints
 
 ### Part 2: Establish a Baseline
 
@@ -68,12 +90,7 @@ Alternatives to semantic filtering:
   - the list of entity types you make will look something like: `["referee", "vollyball player", "sports fan", "food vendor", ...]`
 - Notebook: [annotate dataset with gliner](notebooks/part-2-annotate-with-gliner-review-in-argilla.ipynb)
 
-(5) Make the evaluation dataset: install Argilla, and annotate at least 10 items in the Argilla UI
-Start the Argilla UI through their Docker image:
-```
-docker run -d --name quickstart -p 6900:6900 argilla/argilla-quickstart:latest
-```
-- After annotating, export your annotations
+(5) Make the evaluation dataset: annotate at least 10 items in the Argilla UI. 
 
 **Optional: In a group setting, combine annotations across groups to create a larger dataset**
 
