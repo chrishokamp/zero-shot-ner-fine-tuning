@@ -1,9 +1,9 @@
 # Zero- to Few-Shot NER Fine Tuning Lab
 
-After this lab, you will know how to use open source datasets, zero shot NER models, and open-source annotation interfaces to:
+After this lab, you will know how to use open-source datasets, zero shot NER models, and open-source annotation interfaces to:
 
 - quickly bootstrap datasets for a specific entity recognition task
-- define a entity type system, weakly annotate, and create evaluation datasets for your task
+- define an entity type system, weakly annotate, and create evaluation datasets for your task
 - evaluate off-the-shelf models on specific entity types to establish baselines
 - build configurable training datasets for new entity types
 - fine tune smaller zero-shot models for better performance in a teacher-->student setting
@@ -28,11 +28,11 @@ There are two ways to use Argilla in the scope of this lab.
 
 Hosting Argilla on HuggingSpace is streamlined and it is the faster way to do it. If you are hosting for free, unfortunately, the storage will not be persistent. That means the data will be lost after the HF Space resets. This should not an issue for this lab since the data annotation is not the whole focus.
 
-You annotations will persist on local storage on docker.
+Your annotations will persist on local storage on docker.
 
 Hosting Argilla on HuggingFace Spaces is recommended for its convenience and efficiency. Installing docker and hosting Argilla through Docker could slow you down.
 
-To deploy Argilla in HF Spaces; see [guide](https://docs.argilla.io/latest/getting_started/quickstart/), and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook. Obtaining it is simple and it is explained in the guide.
+To deploy Argilla in HF Spaces; see [guide](https://docs.argilla.io/latest/getting_started/quickstart/) and follow the "Deploy on HF Spaces" button. If you do this, you'll need to replace the `api_url` to the HF Space URL in the Part 2 notebook. Obtaining it is simple, and it is explained in the guide.
 
 On the other hand, if you'd like to take the docker route, [install docker](https://www.docker.com/get-started/) if you don't already have it.
 Check the [doc](https://docs.argilla.io/latest/getting_started/how-to-deploy-argilla-with-docker/) for setting up Argilla using Docker.
@@ -61,14 +61,14 @@ Try to answer the questions below to set the direction of the lab for you.
 
 **1. What domain would you like to work in?**
 
-The domain could be anything; as big as sports, entertainment, healthcare, finance or as niche as keyboards, luxury watches, cancer research. Since we will be semantically filtering a larger, more general dataset, going very niche could hurt your data quality. This is OK in the spirit of experimentation.
+The domain could be anything, as big as sports, entertainment, healthcare, finance or as niche as keyboards, luxury watches, cancer research. Since we will be semantically filtering a larger, more general dataset, going very niche could hurt your data quality. This is OK in the spirit of experimentation.
 
 **2. What problem are you going to solve?**
 
-For instance, a luxury watch brand could be interested keeping a tab on what's happening with their competitors or a company could be looking for academic researcers to peer-review their research.
+For instance, a luxury watch brand could be interested keeping a tab on what's happening with their competitors, or a company could be looking for academic researchers to peer-review its research.
 
 **3. What types of entities are going to be important in that domain?**
-Think around the domain and the problem, this will point you in the right direction. For the luxury watch brand keeping the tab on competitors scenario, interesting entity types could be 'organization', 'product', 'event' etc. 
+Think around the domain and the problem, this will point you in the right direction. For the luxury watch brand keeping the tab on its competitors scenario, interesting entity types could be 'organization', 'product', 'event' etc. 
 
 (3) collect a domain-specific dataset by semantically filtering a large dataset      
 - Notebook: [semantically filter a huggingface dataset](notebooks/part-1-semantically-filter-a-huggingface-dataset.ipynb)
